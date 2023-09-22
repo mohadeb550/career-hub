@@ -14,7 +14,7 @@ import JobDetails from './components/JobDetails'
   {path:'/', element: <Root/>, errorElement: <ErrorPage/> , children:[
 
     {path: '/', element: <Home/>},
-    {path: '/applied', element: <AppliedJobs/>},
+    {path: '/applied', loader: ()=> fetch('jobs.json') , element: <AppliedJobs/>},
     {path: 'job/:id', loader: ()=> fetch('jobs.json'), element: <JobDetails/>}
     
   ]}
